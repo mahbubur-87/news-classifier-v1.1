@@ -1,0 +1,629 @@
+﻿/* #########################################################################################
+*  # RESETS
+*  ######################################################################################### */
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+/* #########################################################################################
+*  # VARIABLES
+*  ######################################################################################### */
+:root {
+	--dw_dpa_grey-1: #3b444d;
+	--dw_dpa_grey-2: #323c4d;
+	--dw_dpa_grey-3: #7f8891;
+	--dw_dpa_grey-4: #3c444d;
+	--dw_dpa_grey-5: #323c45;
+	--dw_dpa_grey-6: #6d7780;
+
+	--dw_dpa_blue-1: #002d5a;
+}
+
+/* #########################################################################################
+*  # WEBFONTS
+*  ######################################################################################### */
+/* ---------------- Noto Sans ---------------- */
+/*Basic Latin Symbols*/
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinBasicSymbols/NotoSansLatinBasicSymbols-Regular.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinBasicSymbols/NotoSansLatinBasicSymbols-Regular.woff") format("woff");
+	unicode-range: U+020-040, U+05B-060, U+07B-07F;
+	/*Basic Latin Symbols*/
+}
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinBasicSymbols/NotoSansLatinBasicSymbols-Bold.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinBasicSymbols/NotoSansLatinBasicSymbols-Bold.woff") format("woff");
+	unicode-range: U+020-040, U+05B-060, U+07B-07F;
+	/*Basic Latin Symbols*/
+}
+/*Basic Latin Letters*/
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinBasicLetters/NotoSansLatinBasicLetters-Regular.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinBasicLetters/NotoSansLatinBasicLetters-Regular.woff") format("woff");
+	unicode-range: U+041-05A, U+061-07A;
+	/*Basic Latin Letters*/
+}
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinBasicLetters/NotoSansLatinBasicLetters-Bold.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinBasicLetters/NotoSansLatinBasicLetters-Bold.woff") format("woff");
+	unicode-range: U+041-05A, U+061-07A;
+	/*Basic Latin Letters*/
+}
+/*Latin Extended*/
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinExtended/NotoSansLatinExtended-Regular.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinExtended/NotoSansLatinExtended-Regular.woff") format("woff");
+	unicode-range: U+0A0-24F;
+	/*Latin Extended*/
+}
+@font-face {
+	font-family: "Noto Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Noto Sans"), url("../assets/webfonts/NotoSansLatinExtended/NotoSansLatinExtended-Bold.woff2") format("woff2"), url("../assets/webfonts/NotoSansLatinExtended/NotoSansLatinExtended-Bold.woff") format("woff");
+	unicode-range: U+0A0-24F;
+	/*Latin Extended*/
+}
+.dpa_app {
+	font-family: "Noto Sans", Arial, Helvetica, sans-serif;;
+}
+
+/* #########################################################################################
+*  # WIDGET
+*  ######################################################################################### */
+.dpa_app {
+	padding: 15px;
+	box-sizing: border-box;
+}
+/* #########################################################################################
+*  # HEADER
+*  ######################################################################################### */
+.dpa_app .fontColorHighlight {
+	color: #0098ff;
+	fill: #0098ff;
+}
+.dpa_app .backgroundColorHighlight {
+	color: #ffffff;
+	background-color: #6d7780;
+}
+.dpa_appSA .dpa_header {
+	height: 35px;
+}
+.dpa_appSA .dpa_header .dpa_header-logo {
+	text-align: start;
+	width: 39px;
+	-webkit-border-top-right-radius: 0;
+	-webkit-border-bottom-right-radius: 0;
+	-moz-border-radius-topright: 0;
+	-moz-border-radius-bottomright: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	height: 35px;
+	transform: translate(-3px, 0px);
+}
+.dpa_appSA .dpa_header .dpa_header-title {
+	padding-left: 50px;
+	text-align: start;
+	text-transform: none;
+}
+.dpa_appSA .dpa_header .dpa_header-update {
+	background-color: #00a5ff;
+	width: 35px;
+	height: 35px;
+}
+.dpa_appSA .dpa_header .dpa_header-update .dpa_header-update-icon {
+	margin-left: 4px;
+	margin-top: 4px;
+}
+
+/**
+ * Header/font-styles/common
+ */
+.dpa_appSA .dpa_header .dpa_header-title {
+	font-weight: bold;
+	line-height: 35px;
+}
+
+/**
+ * Header/font-styles/mobile
+ */
+.dpa_appSA.dpa_app-mobile_true .dpa_header .dpa_header-title {
+	font-size: 16px;
+}
+
+/**
+ * Header/font-styles/desktop
+ */
+.dpa_appSA.dpa_app-mobile_false .dpa_header .dpa_header-title {
+	font-size: 18px;
+}
+
+/* header logo modifications */
+/*=>competition: em-men (fb_mls)*/
+/*show/hide logo*/
+.dpa_appSA.dpa_app-fb_mls .dpa_header .dpa_header-logo img {
+	display: none;
+}
+/*logo substitution as background-image*/
+.dpa_appSA.dpa_app-fb_mls .dpa_header .dpa_header-logo {
+	background-image: url("https://d35y7ofb9zmrr6.cloudfront.net/fb_mls/assets/img/competitions/fb_mem.svg?v=9");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 30px 30px;
+}
+
+/* #########################################################################################
+*  # HEADLINE
+*  ######################################################################################### */
+.dpa_appSAScoreboard .dpa_title {
+	background: #f1f3f5;
+	border: none;
+}
+
+/**
+ * headline modifications
+ * competition: em-men (fb_mls)
+ */
+/*(show)/hide title*/
+.dpa_appSA.dpa_app-fb_mls .dpa_header .dpa_header-title span {
+	display: none;
+}
+/*title substitution dep. on lang (.dpa_app-lang_LANGUAGECODE)*/
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_de .dpa_header .dpa_header-title:after {
+	content: 'EM-Qualifikation';
+}
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_en .dpa_header .dpa_header-title:after {
+	content: 'European Qualifiers';
+}
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_fr .dpa_header .dpa_header-title:after {
+	content: 'Qualifications Euro';
+}
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_pt .dpa_header .dpa_header-title:after {
+	content: 'European Qualifiers';
+}
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_ha .dpa_header .dpa_header-title:after {
+	content: 'European Qualifiers';
+}
+.dpa_appSA.dpa_app-fb_mls.dpa_app-lang_sw .dpa_header .dpa_header-title:after {
+	content: 'European Qualifiers';
+}
+
+/* #########################################################################################
+*  # CONTENT
+*  ######################################################################################### */
+/**
+ * common
+ */
+.dpa_app .dpa_box {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	margin: 0 0 10px;
+}
+
+/* #########################################################################################
+*  # FUSSBALLDATEN Ergebnisse Scoreboard (Feste Höhe)
+*  ######################################################################################### */
+/**
+ * Scoreboard/common
+ */
+.dpa_app .dpa_timeline-scoreboard .dpa_timeline-scoreboard-score .dpa_timeline-scoreboard-result {
+	margin-top: 30px;
+}
+.dpa_app.dpa_appSAConference .dpa_box {
+	background-color: transparent;
+}
+.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game {
+	background: #ffffff;
+	border-bottom: 5px solid #f1f3f5;
+	border-right: 5px solid #f1f3f5;
+	width: 33.3%;
+}
+.dpa_conference .dpa_conference-game .dpa_conference-game-team {
+	width: 30%;
+	margin-top: 5px;
+	padding: 0 1%;
+}
+/**
+ * Scoreboard/mobile
+ */
+
+/**
+ * Scoreboard/desktop
+ */
+
+/**
+ * Scoreboard/font-styles/mobile
+ */
+.dpa_appSAScoreboard.dpa_app-mobile_true .dpa_title .dpa_scoreboardTitle-round {
+	font-weight: normal;
+	font-size: 12px;
+	color: #323c45;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_true .dpa_timeline-scoreboard-score {
+	font-size: 12px;
+	color: #7f8891;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_true .dpa_timeline-scoreboard-score .dpa_timeline-scoreboard-result {
+	font-size: 20px;
+	color: #3b444d;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_true .dpa_timeline-scoreboard .dpa_timeline-scoreboard-team {
+	font-size: 12px;
+	color: #323c45;
+}
+
+/**
+ * Scoreboard/font-styles/desktop
+ */
+.dpa_appSAScoreboard.dpa_app-mobile_false .dpa_title .dpa_scoreboardTitle-round {
+	font-weight: normal;
+	font-size: 15px;
+	color: #323c45;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_false .dpa_timeline-scoreboard-score {
+	font-size: 15px;
+	color: #7f8891;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_false .dpa_timeline-scoreboard-score .dpa_timeline-scoreboard-result {
+	font-size: 20px;
+	color: #3b444d;
+}
+.dpa_appSAScoreboard.dpa_app-mobile_false .dpa_timeline-scoreboard .dpa_timeline-scoreboard-team {
+	font-size: 15px;
+	color: #323c45;
+}
+
+/* #########################################################################################
+*  # FUSSBALLDATEN Ergebnisse Conference (Liste)
+*  # FUSSBALLDATEN Ergebnisse Conference/horizontal (Boxen)
+*  ######################################################################################### */
+/**
+ * Conference/common
+ */
+.dpa_appSAConference .dpa_title {
+	padding: 0;
+}
+.dpa_appSAConference .dpa_title .dpa_title-border {
+	height: 0;
+}
+.dpa_appSAConference .dpa_games {
+	padding: 0;
+}
+.dpa_appSAConference .dpa_game {
+	border-bottom: 5px solid #f1f3f5;
+	background: #ffffff;
+	padding: 0 10px;
+}
+
+/**
+ * Conference/mobile
+ */
+.dpa_app-mobile_true.dpa_app-568.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game {
+	border-bottom: 5px solid #f1f3f5;
+	border-right: 5px solid #f1f3f5;
+}
+.dpa_app-mobile_true.dpa_app-480.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game {
+	border-bottom: 5px solid #f1f3f5;
+	border-right: 5px solid #f1f3f5;
+	width: 50%;
+}
+.dpa_app-mobile_true.dpa_app-480.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game:nth-child(2n+2) {
+	border-right: 0 none;
+}
+.dpa_app-mobile_true.dpa_app-360.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game {
+	border-bottom: 5px solid #f1f3f5;
+	border-right: 0;
+	width: 100%;
+}
+
+/**
+ * Conference/desktop
+ */
+.dpa_app-mobile_false.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game {
+	border-bottom: 5px solid #f1f3f5;
+	border-right: 5px solid #f1f3f5;
+}
+.dpa_app-mobile_false.dpa_app-960.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game:nth-child(3n+3) {
+	border-right: 0 none;
+}
+.dpa_app-mobile_false.dpa_app-360.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game:nth-child(3n+3) {
+	border-right: 5px solid #f1f3f5;
+}
+.dpa_app-mobile_false.dpa_app-360.dpa_appSAConference .dpa_conference .dpa_conference-games .dpa_conference-game:nth-child(2n+2) {
+	border-right: 0 none;
+}
+
+/**
+ * Conference/font-styles/mobile
+ */
+.dpa_appSAConference.dpa_app-mobile_true .dpa_title {
+	font-weight: normal;
+	font-size: 12px;
+	color: var(--dw_dpa_grey-1);
+}
+.dpa_appSAConference.dpa_app-mobile_true .dpa_game-teams {
+	font-size: 12px;
+	color: var(--dw_dpa_grey-2);
+}
+.dpa_appSAConference.dpa_app-mobile_true .dpa_game-score {
+	font-weight: bold;
+	font-size: 12px;
+	color: var(--dw_dpa_grey-2);
+}
+
+/**
+ * Conference-horizontal (Boxen)/font-styles/mobile
+ */
+.dpa_appSAConference.dpa_app-mobile_true .dpa_conference .dpa_conference-game-score {
+	font-size: 12px;
+	color: var(--dw_dpa_grey-2);
+}
+.dpa_appSAConference.dpa_app-mobile_true .dpa_conference .dpa_conference-game-result {
+	font-weight: bold;
+	font-size: 16px;
+	color: var(--dw_dpa_grey-4);
+}
+.dpa_appSAConference.dpa_app-mobile_true .dpa_conference .dpa_conference-game-team-name {
+	font-size: 12px;
+	color: var(--dw_dpa_grey-2);
+}
+
+/**
+ * Conference/font-styles/desktop
+ */
+.dpa_appSAConference.dpa_app-mobile_false .dpa_title {
+	font-weight: normal;
+	font-size: 15px;
+	color: var(--dw_dpa_grey-1);
+}
+.dpa_appSAConference.dpa_app-mobile_false .dpa_game-teams {
+	font-size: 15px;
+	color: var(--dw_dpa_grey-5);
+}
+.dpa_appSAConference.dpa_app-mobile_false .dpa_game-score {
+	font-weight: bold;
+	font-size: 15px;
+	color: var(--dw_dpa_grey-5);
+}
+.dpa_appSAConference.dpa_app-mobile_false .dpa_game-score .dpa_game-score-half {
+	font-weight: normal;
+	font-size: 12px;
+	color: var(--dw_dpa_grey-5);
+}
+
+/**
+ * Conference-horizontal (Boxen)/font-styles/desktop
+ */
+.dpa_appSAConference.dpa_app-mobile_false .dpa_conference .dpa_conference-game-score {
+	font-size: 11px;
+	color: var(--dw_dpa_grey-3);
+}
+.dpa_appSAConference.dpa_app-mobile_false .dpa_conference .dpa_conference-game-score .dpa_conference-game-result {
+	font-weight: bold;
+	font-size: 15px;
+	color: var(--dw_dpa_grey-4);
+}
+.dpa_appSAConference.dpa_app-mobile_false .dpa_conference .dpa_conference-game-team-name {
+	font-size: 11px;
+	color: var(--dw_dpa_grey-5);
+}
+
+/* #########################################################################################
+*  # FUSSBALLDATEN Ergebnisse Table (Tabelle)
+*  ######################################################################################### */
+/**
+ * Table/common
+ */
+.dpa_app.dpa_appSATable .dpa_box {
+	background-color: transparent;
+}
+.dpa_app.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn {
+	border-bottom: none;
+}
+.dpa_app.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn:hover {
+	background-color: #bfc7ce;
+}
+.dpa_app.dpa_appSATable .dpa_content-menu-btn .backgroundColorHighlight {
+	background-color: #00a5ff;
+}
+.dpa_app.dpa_appSATable .dpa_tables .dpa_scroll {
+	margin-top: 0;
+}
+.dpa_tables .dpa_table-content-padding {
+	margin: 0;
+}
+.dpa_appSATable .dpa_tables .dpa_tablePoints {
+	width: 40px;
+}
+.dpa_appSATable .dpa_table .dpa_tableRow {
+	background-color: #ffffff;
+}
+.dpa_appSATable .dpa_table .dpa_tableRow.dpa_tableHead {
+	background-color: #7f8891;
+}
+.dpa_appSATable .dpa_table .dpa_tableRow .dpa_tableCell {
+	border-bottom: 5px solid #f1f3f5;
+}
+.dpa_appSATable .dpa_table .dpa_tableRow.last-child .dpa_tableCell,
+.dpa_appSATable .dpa_table .dpa_tableRow:last-child .dpa_tableCell {
+	border-bottom: 5px solid #f1f3f5;
+}
+
+/**
+ * Table/mobile
+ */
+
+/**
+ * Table/desktop
+ */
+
+/**
+ * Table/font-styles/common
+ */
+.dpa_app.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn {
+	color: var(--dw_dpa_grey-5);
+	text-transform: none;
+}
+.dpa_app.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn .active {
+	font-weight: bold;
+	color: var(--dw_dpa_blue-1);
+}
+.dpa_appSATable .dpa_table .dpa_tableRow {
+	font-weight: normal;
+	color: var(--dw_dpa_grey-6);
+}
+.dpa_appSATable .dpa_table .dpa_tableRow .dpa_tableRank,
+.dpa_appSATable .dpa_table .dpa_tableRow .dpa_tableName,
+.dpa_appSATable .dpa_table .dpa_tableRow .dpa_tablePoints {
+	font-weight: bold;
+	color: var(--dw_dpa_grey-1);
+}
+.dpa_appSATable .dpa_table .dpa_tableRow.dpa_tableHead,
+.dpa_appSATable .dpa_table .dpa_tableRow.dpa_tableHead .dpa_tableRank,
+.dpa_appSATable .dpa_table .dpa_tableRow.dpa_tableHead .dpa_tableName,
+.dpa_appSATable .dpa_table .dpa_tableRow.dpa_tableHead .dpa_tablePoints {
+	font-weight: bold;
+	color: #ffffff;
+}
+.dpa_app-mobile_true.dpa_appSATable .dpa_tableLegend-item-text {
+	color: var(--dw_dpa_grey-3);
+}
+
+/**
+ * Table/font-styles/mobile
+ */
+.dpa_app.dpa_app-mobile_true.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn {
+	font-size: 16px;
+}
+.dpa_app-mobile_true.dpa_appSATable .dpa_table .dpa_tableRow {
+	font-size: 12px;
+}
+
+/**
+ * Table/font-styles/desktop
+ */
+.dpa_app.dpa_app-mobile_false.dpa_appSATable .dpa_content-menu .dpa_content-menu-btn {
+	font-size: 18px;
+}
+.dpa_app-mobile_false.dpa_appSATable .dpa_table .dpa_tableRow {
+	font-size: 15px;
+}
+.dpa_app-mobile_false.dpa_appSATable .dpa_table .dpa_tableRow .dpa_tableGoalsDiff {
+	font-size: 13px;
+}
+
+/**
+ * Table/trendicons
+ * used to show if team rise or fall
+ */
+.dpa_appSATable .dpa_tables .dpa_trendIcon0 {
+	background: url('https://commons.dw.com/dpa/assets/gfx/hoch.svg') no-repeat center center;
+	height: 7px;
+	width: 14px;
+	border: none transparent;
+}
+.dpa_appSATable .dpa_tables .dpa_trendIcon2 {
+	background: url('https://commons.dw.com/dpa/assets/gfx/runter.svg') no-repeat center center;
+	height: 7px;
+	width: 14px;
+	border: none transparent;
+}
+
+/**
+ * Table/rank-classification
+ */
+.dpa_appSATable .dpa_tableCell.dpa_tableRank {
+	position: relative;
+}
+.dpa_appSATable .dpa_tableCell.dpa_tableRank .dpa_tableRank-padding {
+	background-color: transparent;
+	color: #3b444d;
+}
+.dpa_appSATable .dpa_tableRank-padding::before {
+	content: '';
+	width: 8px;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+}
+
+/**
+ * Table/rank-classification-colors dep. from rank-status
+ * used in table and legend
+ */
+.dpa_appSATable .dpa_tableRank-padding.dpa_zone-champions-league::before,
+.dpa_appSATable .dpa_tableLegend-item .dpa_zone-champions-league,
+.dpa_appSATable .dpa_tableRank-padding.dpa_zone-qualification::before,
+.dpa_appSATable .dpa_tableLegend-item .dpa_zone-qualification {
+	background: #6ea500;
+}
+.dpa_appSATable .dpa_tableRank-padding.dpa_zone-europa-league::before,
+.dpa_appSATable .dpa_tableLegend-item .dpa_zone-europa-league {
+	background: #0064b4;
+}
+.dpa_appSATable .dpa_tableRank-padding.dpa_zone-relegation-qualification::before,
+.dpa_appSATable .dpa_tableLegend-item .dpa_zone-relegation-qualification {
+	background: #f0aa00;
+}
+.dpa_appSATable .dpa_tableRank-padding.dpa_zone-relegation::before,
+.dpa_appSATable .dpa_tableLegend-item .dpa_zone-relegation {
+	background: #be232d;
+}
+/*footer*/
+.dpa_appSATable .dpa_tables .dpa_tableFootnote {
+	border: none;
+}
+/* CONTROLS */
+.dpa_app .bx-pager {
+	border-top: none;
+}
+.dpa_appSAScoreboard .bx-wrapper .bx-pager.bx-default-pager a,
+.dpa_appSAScoreboard .bx-wrapper .bx-pager.bx-default-pager .bx-pager-link {
+	width: 7px;
+	height: 7px;
+	border-radius: 7px;
+}
+.dpa_appSAScoreboard .bx-wrapper .bx-pager.bx-default-pager a.active,
+.dpa_appSAScoreboard .bx-wrapper .bx-pager.bx-default-pager .bx-pager-link.active {
+	width: 7px;
+	height: 7px;
+}
+/* FOOTER */
+.dpa_footer {
+	display: none;
+}
+
+/* #########################################################################################
+*  # STANDALONES (.dpaAppSA+{standloneType})
+*  ######################################################################################### */
+/*
+.dpa_appSAScoreboard {}
+.dpa_appSAConference {}
+.dpa_appSAGoal {}
+.dpa_appSALineUp {}
+.dpa_appSASchedule {}
+.dpa_appSAStatistic {}
+.dpa_appSATable {}
+.dpa_appSATeams {}
+.dpa_appSATicker {}
+.dpa_appSATimeline {}
+*/
+/* #########################################################################################
+*  # MOBILE VIEW
+*  ######################################################################################### */
+/*
+.dpa_app-mobile_true {}
+*/

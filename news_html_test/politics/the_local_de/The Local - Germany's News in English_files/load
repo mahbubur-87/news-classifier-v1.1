@@ -1,0 +1,184 @@
+
+(function () {
+  
+  window.PianoESPConfig = { 
+	id: 39 
+};
+    tp = window["tp"] || [];
+
+    /* Checkout related */
+    /**
+     * Event properties
+     *
+     * chargeAmount - amount of purchase
+     * chargeCurrency
+     * uid
+     * email
+     * expires
+     * rid
+     * startedAt
+     * termConversionId
+     * termId
+     * promotionId
+     * token_list
+     * cookie_domain
+     * user_token
+     *
+     */
+     /* Callback executed if external checkout has been completed successfully */
+    function onExternalCheckoutComplete(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        location.reload();
+    }
+
+     function onCheckoutExternalEvent() {
+    }
+
+    function onCheckoutClose(event) {
+        /* Default behavior is to refresh the page on successful checkout */
+        if (event && event.state == "checkoutCompleted") {
+            location.reload();
+        }
+    }
+
+    function onCheckoutCancel() {
+    }
+
+    function onCheckoutError() {
+    }
+
+    /* Meter callback */
+    function onMeterExpired() {
+
+    }
+
+    /* Meter callback */
+    function onMeterActive() {
+
+    }
+
+    /* Callback executed when a user must login */
+    function onLoginRequired() {
+        // this is a reference implementation only
+        // your own custom login/registration implementation would
+        // need to return the tinypass-compatible userRef inside the callback
+
+        // mysite.showLoginRegistration(function (tinypassUserRef)
+        // tp.push(["setUserRef", tinypassUserRef]); // tp.offer.startCheckout(params); // }
+        // this will prevent the tinypass error screen from displaying
+
+        return false;
+    }
+
+    /* Callback executed after a tinypassAccounts login */
+    function onLoginSuccess() {
+    }
+
+    /* Callback executed after an experience executed successfully */
+    function onExperienceExecute(event) {
+if (typeof localStorage === "object" && typeof localStorage.setItem === "function") {
+ if(typeof event === "object" && "user" in event && "uid" in event.user && event.user.uid && event.user.uid != "anon"){
+      localStorage.setItem("piano-uid",event.user.uid);
+    }}
+    }
+
+    /* Callback executed if experience execution has been failed */
+    function onExperienceExecutionFailed(event) {
+    }
+	 /* external checkout related events */
+    tp.push(["addHandler", "externalCheckoutComplete", onExternalCheckoutComplete]);
+  
+  
+    /*end external related events */
+    
+    tp.push(["setAid", 'lGr3ciYmC7']);
+    tp.push(["setEndpoint", 'https://buy.tinypass.com/api/v3']);
+    tp.push(["setUseTinypassAccounts", false ]);
+    tp.push(["setUsePianoIdUserProvider", true ]);
+  tp.push(["setCloudflareWorkerUrl", "https://auth.thelocal.com"]);
+  tp.push(["setCloudflareWorkerUrl", "https://itp.thelocal.com"]);
+  tp.push(['setApplePayMerchantId','merchant.com.thelocal'])
+  
+tp.push(["addHandler", "setResponseVariable",function(eventParams){
+        if (eventParams.responseVariables !== undefined) {
+            if (eventParams.responseVariables.newsletter_subscriber !== undefined) {
+                if (eventParams.responseVariables.newsletter_subscriber === true) {
+                    tp.push(["setCustomVariable", "newsletter_subscriber", "True"]);
+                }
+            }
+        }
+    }]);
+    /* checkout related events */
+    
+    tp.push(["addHandler", "checkoutClose", onCheckoutClose]);
+    tp.push(["addHandler", "checkoutCustomEvent", onCheckoutExternalEvent]);
+    tp.push(["addHandler", "checkoutCancel", onCheckoutCancel]);
+    tp.push(["addHandler", "checkoutError", onCheckoutError]);
+
+  
+/* Andriod/iOS events */
+tp.push(["addHandler", "showOffer", function(offerParams){
+	if (typeof window.webkit !== 'undefined') {
+		window.webkit.messageHandlers.showOffer.postMessage({});
+	}
+}]);
+tp.push( [ "addHandler", "startCheckout", function () {
+	if (typeof window.webkit !== 'undefined') {
+		window.webkit.messageHandlers.startCheckout.postMessage({});
+	}
+}]);
+tp.push(["addHandler", "loginSuccess", function(data){
+	if (typeof window.webkit !== 'undefined') {
+		window.webkit.messageHandlers.checkoutComplete.postMessage({});
+	}
+}]);
+tp.push(["addHandler", "checkoutComplete", function(conversion){
+	if (typeof window.webkit !== 'undefined') {
+		window.webkit.messageHandlers.checkoutComplete.postMessage({});
+	}
+}]);
+
+    /* user login events */
+    tp.push(["addHandler", "loginRequired", onLoginRequired]);
+    tp.push(["addHandler", "loginSuccess", onLoginSuccess]);
+
+    /* meter related */
+    tp.push(["addHandler", "meterExpired", onMeterExpired]);
+    tp.push(["addHandler", "meterActive", onMeterActive]);
+
+    tp.push(["addHandler", "experienceExecute", onExperienceExecute]);
+    tp.push(["addHandler", "experienceExecutionFailed", onExperienceExecutionFailed]);
+
+    tp.push(["init", function() {
+		if (!tp.pianoId.isUserValid()) {
+	    	tp.pianoId.init();
+		}
+    	tp.experience.init();
+	}]);
+})();
+
+
+    // do not change this section
+    // |BEGIN INCLUDE TINYPASS JS|
+    (function(src){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=src;var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})("//cdn.tinypass.com/api/tinypass.min.js");
+    // |END   INCLUDE TINYPASS JS|
+tp = window.tp || [];
+// Hook execute when login was successful
+tp.push(['addHandler', 'loginSuccess', function () {
+    // Get list of all access data
+    tp.api.callApi('/access/list', {}, function (data) {
+        if (typeof data.data != "undefined") {
+            // Loop through all possible access objects
+            for (var i in data.data) {
+                // Was access granted?
+                if (data.data[i].granted) {
+                    // All good, user just logged in, we can close the offer
+                    tp.offer.close();
+                    // Additionally we can refresh the page
+                    location.reload();
+                }
+            }
+        }
+    });
+}]);
+

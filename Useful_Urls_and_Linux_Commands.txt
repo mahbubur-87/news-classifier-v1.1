@@ -1,0 +1,2 @@
+Use BLINK in your codebase
+pip install -e git://github.com/facebookresearch/BLINK#egg=BLINK

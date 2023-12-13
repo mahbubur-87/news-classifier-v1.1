@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>tablet-hotels_banners_728x90_ecstasy</title>
+
+		<!-- css -->
+		<style>
+			body {
+				margin: 0;
+			}
+		</style>
+
+		<!-- greensock -->
+	<script src="./gsap_3.5.1_min.js"></script>
+
+	<!-- dcm -->
+	<meta name="ad.size" content="width=728, height=90">
+	<script type="text/javascript">
+		var clickTag = 'https://www.tablethotels.com/';
+	</script>
+
+
+		<!-- banner -->
+		<script src="./banner.min.js"></script>
+
+		<script>bannerboy.execution = 'en';</script>
+
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+
+<body onload="bannerboy.main();">
+	<!-- inject:body -->
+	<!-- (Do not add stuff inside this block!) -->
+	<div id="banner-container"><div id="border" style="box-sizing: border-box; overflow: hidden; border: 1px solid rgb(204, 204, 204); height: 90px; width: 728px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="banner" style="box-sizing: border-box; cursor: pointer; top: -1px; left: -1px; background-color: rgb(255, 255, 255); height: 90px; width: 728px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="frame_1" style="height: 64px; width: 584px; top: 20px; left: 55px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="img_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/img_1.jpg&quot;); height: 63px; width: 61px; top: 1px; left: 0px; transform: translate3d(0px, 0px, 0px) scale(1.1, 1.1); position: absolute; opacity: 0;"></div><div id="txt_1" style="height: 55px; width: 530px; top: 0px; left: 54px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_1_5" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_1_5.png&quot;); height: 54px; width: 123px; top: 1px; left: 407px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_4" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_1_4.png&quot;); height: 40px; width: 83px; top: 8px; left: 319px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_3" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_1_3.png&quot;); height: 40px; width: 54px; top: 9px; left: 254px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_1_2.png&quot;); height: 43px; width: 120px; top: 2px; left: 122px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_1_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_1_1.png&quot;); height: 47px; width: 103px; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div></div></div><div id="frame_2" style="height: 91px; width: 547px; top: 0px; left: 87px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"><div id="fish_tank" style="background-size: 100% 100%; background-repeat: no-repeat; height: 81px; width: 60px; top: 4px; left: 289px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="120" height="162" style="opacity: 1; height: 81px; width: 60px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0; height: 81px; width: 60px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="fish_tank" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 467 642"><path d="M137.7,472.7s2.4,56,2.6,68.3,2.4,35.8,2.4,35.8H296.8c5.9-59.2-2.7-108.6-2.7-108.6l-156.7,4-26.3,20.2V621.9s129.6,1.3,141.3,0,21.4-2.5,29-2.5,10.4,3.1,25.9,2.4,34.8-5.9,34.8-5.9l-4.4-130.4-225.1,6.7" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 8px; stroke-dashoffset: 0; stroke-dasharray: none;"></path></svg></div></div><div id="cucumbers" style="background-size: 100% 100%; background-repeat: no-repeat; height: 90px; width: 95px; top: 1px; left: 123px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="190" height="180" style="opacity: 1; height: 90px; width: 95px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0; height: 90px; width: 95px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="cucumbers" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 625 592"><path d="M357,363.2s-19.3,26.3-9.2,23.2,32-35.2,36.7-59.6-19.5-42-18.7-74,35.9-149.3,35.9-149.3l-47.6-7c-22.7,43.7-15.2,98-19.5,120s-11.3,39.8-22.1,49.2-9.5,9.8-6.7,21.3.2,26.1,0,41.2,12,4.4,12,4.4c1.4,23.4,24.1,37.5,43,23.5s9.8-37.7,4.1-42.6-18.9-9-39.4,6.6" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 7px; stroke-dashoffset: 0; stroke-dasharray: none;"></path><path d="M255.6,351.3s3.5,3.6-1.1,5.8-23.6-1.8-30.1-17.5-9.7-25.7,5.4-51.5,15.7-50.9,15.1-70.5-15.6-61.5-19-76.1,0-14,0-14l43.2-9.5c9.5,29.7,8.9,141.6,9.8,151.5s5.5,13.5,8.1,21.1,3.6,12,5.7,18.2,5.4,9.8,4.6,11.7-5.8.2-5.8.2c2.6,18.1-1.8,21.6-15.1,30s-28.3-4.4-32.3-9.2-7.9-16.4,9.3-31.5,28.8,0,28.8,0" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 7px; stroke-dashoffset: 0; stroke-dasharray: none;"></path></svg></div></div><div id="hammock" style="background-size: 100% 100%; background-repeat: no-repeat; height: 90px; width: 125px; top: 0px; left: 422px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="250" height="180" style="opacity: 1; height: 90px; width: 125px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0; height: 90px; width: 125px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="hammock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596 425"><path d="M457.8,227.6c30.5-31.1,54.7-119.4,54.7-119.4l-5.3-3.7c-13.8,37.1-39.3,50.4-39.3,50.4-9-5.8-28.6-20.2-46.7-.5s-3.4,36.1-3.4,36.1l-20.2,3.4c-22.8-2.1-26.3,3.2-31.1,6.7s-22,11.1-30,11.9-6.8,5-6.8,5S264,218.7,225.3,203s-85.1-66.9-85.1-66.9c4.1-6.1,2.8-10.5,2.8-10.5,5.7-12.1,5.3-8.1,13.7-22.2s-2.4-12.9-2.4-12.9a25.8,25.8,0,0,1-13.7,4.9c-8,.4-7.2,8.4-7.2,13.7a10.9,10.9,0,0,1-3.3,8c-9.6-6-14.1-33.4-18.5-34.6s-4.8,15.7-4,24.1,2.8,4.1,6.4,10.5,2.6,10.1,2.6,10.1H105.9S181,206.4,226.4,239.4s73.4,45.4,129.5,42.9,83.4-33.8,83.4-33.8" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 5px; stroke-dashoffset: 0; stroke-dasharray: none;"></path></svg></div></div><div id="sundae" style="background-size: 100% 100%; background-repeat: no-repeat; height: 87px; width: 55px; top: 1px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute;"><canvas width="110" height="174" style="opacity: 1; height: 87px; width: 55px; transform: translate3d(0px, 0px, 0px); position: absolute;"></canvas><div style="opacity: 0; height: 87px; width: 55px; transform: translate3d(0px, 0px, 0px); position: absolute;"><svg id="sundae" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 429 683"><path d="M252.8,276.5c-36.7-22.3-53.2,17.2-52.9,37s-6.7,7.8-6.7,23.3,4.3,11.8,3.3,25.9-19.5,11.5-22.6,33,13.2,37.8,13.2,37.8c6.1,11.1-8.4,9.4-8.4,9.4,35.3,27.3,21.9,28,21.9,59.6s24.6,56.3,24.6,56.3,2.3,12.1-1.4,18.5,4.4,14.5,4.4,14.5-19.9,1.7-19.9,7.1,12.1,7.7,23.6,7,24.2-1,24.2-8.7-15.8-6.1-15.8-6.1c6.8-6.4.3-17.5.3-17.5-7-9.4-3-13.8-3-13.8,19.2-8.1,27.3-42.8,28-58s-6.1-32.3,8.1-45.1S277,440,277,440s10,0,12-29-9-24-9-35,5-32,5-49-26-48-26-48L340,83" style="fill: none; stroke: rgb(29, 29, 27); stroke-miterlimit: 10; stroke-width: 8px; stroke-dashoffset: 0; stroke-dasharray: none;"></path></svg></div></div></div><div id="frame_3" style="height: 44px; width: 652px; top: 25px; left: 22px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_3" style="height: 49px; width: 680px; top: -3px; left: -5px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_3_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_3_1.png&quot;); height: 24px; width: 527px; top: 25px; left: 8px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div><div id="txt_3_0" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_3_0.png&quot;); height: 24px; width: 680px; top: 0px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div></div></div><div id="frame_4" style="height: 78px; width: 561px; top: 5px; left: 85px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="img_4_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/img_4_2.jpg&quot;); height: 77px; width: 59px; top: 0px; left: 502px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 1;"></div><div id="img_4_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/img_4_1.jpg&quot;); height: 71px; width: 46px; top: 7px; left: 0px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 1;"></div><div id="txt_4" style="height: 45px; width: 432px; top: 19px; left: 61px; transform: translate3d(0px, 0px, 0px); position: absolute;"><div id="txt_4_2" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_4_2.png&quot;); height: 24px; width: 438px; top: 31px; left: -2px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 1;"></div><div id="txt_4_1" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/txt_4_1.png&quot;); height: 34px; width: 226px; top: -3px; left: -4px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 1;"></div></div></div><div id="logo" style="background-size: 100% 100%; background-repeat: no-repeat; background-image: url(&quot;https://s0.2mdn.net/9918807/1602172659202/th_ecstasy_728x90_en/logo.png&quot;); height: 9px; width: 68px; top: 74px; left: 653px; transform: translate3d(0px, 0px, 0px); position: absolute; opacity: 0;"></div></div></div></div>
+	<!-- endinject -->
+
+
+</body></html>

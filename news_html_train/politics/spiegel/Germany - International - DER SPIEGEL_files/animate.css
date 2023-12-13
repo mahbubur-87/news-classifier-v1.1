@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/*!
+ * animate.css -http://daneden.me/animate
+ * Version - 3.7.0
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ *
+ * Copyright (c) 2018 Daniel Eden
+ 
+The MIT License (MIT)
+
+Copyright (c) 2019 Daniel Eden
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+ 
+ modified version
+ */
+ /*zoomIn*/
+@-webkit-keyframes zoomIn {
+		  0%,30% { opacity: 0;-webkit-transform: scale3d(.1, .1, .1);transform: scale3d(.1, .1, .1);-webkit-animation-timing-function: cubic-bezier(0.940, -0.450, 0.350, 1.585); }
+		  100% {opacity: 1;}
+		  }
+@keyframes zoomIn {
+		    0%,30% {opacity: 0;-webkit-transform: scale3d(.1, .1, .1);transform: scale3d(.1, .1, .1);animation-timing-function: cubic-bezier(0.940, -0.450, 0.350, 1.585);   }
+		  100% {opacity: 1;}
+  		} 
+		  
+
+	/*ZoomOut*/
+	
+@-webkit-keyframes zoomOut {
+  from {opacity: 1;-webkit-transform: scale3d(2, 2, 2);transform: scale3d(2, 2, 2);-webkit-animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);}
+  to {opacity: 1;}
+	}
+
+@keyframes zoomOut {
+  from {opacity: 1;-webkit-transform: scale3d(2, 2, 2);transform: scale3d(2, 2, 2);animation-timing-function: cubic-bezier(0, 0.55, 0.45, 1);}
+  to {opacity: 1;}
+}

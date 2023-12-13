@@ -1,0 +1,2 @@
+(window.__LOADABLE_LOADED_CHUNKS__=window.__LOADABLE_LOADED_CHUNKS__||[]).push([[352],{907:function(_,n,e){_.exports={electricblue:"#1ff1c8",orange:"#f87121",container:"BoxInline-container"}}}]);
+//# sourceMappingURL=../../source-maps/352-d2488555e465eb8b947d.js.map
